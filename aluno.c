@@ -20,3 +20,13 @@ Aluno* lst_insere(Aluno* al, char* nome, int matricula, int telefone){
         return novo;
     }
 }
+
+void lst_imprime(Aluno* al){
+    Aluno* p;
+    for(p = al; p!=NULL; p = p->prox){
+        printf("Nome: %s\n", p->nome);
+        printf("Matricula: %d\n", p->mat);
+        printf("Telefone: %d\n", p->tel);
+
+    }
+}

@@ -3,7 +3,8 @@
 #include "aluno.h"
 
 int main(){
-
+    
     Aluno* al;
+    lst_cria(al);
 
 }
