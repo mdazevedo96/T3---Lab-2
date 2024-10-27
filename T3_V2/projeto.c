@@ -5,7 +5,7 @@
 #include "professor.h"
 #include "aluno.h"
 
-Projeto* lst_insere(Projeto* p, Professor* prof_resp, int cod, char* desc, char* tipo, float orc, float orc_atual){
+Projeto* projeto_insere(Projeto* p, Professor* prof_resp, int cod, char* desc, char* tipo, float orc, float orc_atual){
     Projeto* novo = (Projeto*) malloc(sizeof(Projeto));
     if(!novo){
         printf("Erro de alocacao");

@@ -6,7 +6,7 @@ Aluno* lst_cria(){
     return NULL;
 }
 
-Aluno* aluno_insere(Aluno* al, char* nome, int matricula, int telefone){
+Aluno* lst_insere(Aluno* al, char* nome, int matricula, int telefone){
 
     Aluno* novo = (Aluno*) malloc(sizeof(Aluno));
     if(novo == NULL){
@@ -21,7 +21,7 @@ Aluno* aluno_insere(Aluno* al, char* nome, int matricula, int telefone){
     }
 }
 
-void aluno_imprime(Aluno* al){
+void lst_imprime(Aluno* al){
     Aluno* p;
     for(p = al; p!=NULL; p = p->prox){
         printf("Nome: %s\n", p->nome);

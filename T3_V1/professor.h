@@ -1,7 +1,4 @@
-#ifndef PROFESSOR_H
-#define PROFESSOR_H
-#include <stdio.h>
-#include <stdlib.h>
+#include "projeto.h"
 
 struct professor{
     int cod;
@@ -12,4 +9,3 @@ struct professor{
 
 typedef struct professor Professor;
 
-#endif
