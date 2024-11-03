@@ -1,16 +1,17 @@
-#include "stdio.h"
 
-struct aluno{
-    char* nome;
-    int mat;
-    int tel;
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct aluno {
+    char nome[50];
+    int matricula;
+    int telefone;
     struct aluno* prox;
-};
-typedef struct aluno Aluno;
+} Aluno;
 
-Aluno* lst_cria();
 
-Aluno* lst_insere(Aluno* al, char* nome, int matricula, int telefone);
-
-void lst_imprime(Aluno* al);
+Aluno* aluno_cria();
+Aluno* aluno_insere(Aluno* a,const char* nome, int mat, int tel);
+void aluno_imprime(Aluno* al);
 

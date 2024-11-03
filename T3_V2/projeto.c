@@ -5,24 +5,30 @@
 #include "professor.h"
 #include "aluno.h"
 
-Projeto* projeto_insere(Projeto* p, Professor* prof_resp, int cod, char* desc, char* tipo, float orc, float orc_atual){
+Projeto* projeto_cria(){
+    return NULL;
+}
+
+Projeto* projeto_insere(Projeto* p, const char* prof_coord, int cod, const char* desc, const char* tipo, float orc_total, float orc_atual) {
     Projeto* novo = (Projeto*) malloc(sizeof(Projeto));
-    if(!novo){
-        printf("Erro de alocacao");
+    if (novo == NULL) {
+        printf("Erro na alocacao\n");
         exit(1);
     }
+
+    strncpy(novo->prof_coord, prof_coord, sizeof(novo->prof_coord) - 1);
+    novo->prof_coord[sizeof(novo->prof_coord) - 1] = '\0';
     novo->cod = cod;
-    novo->desc = strdup(desc);
-    novo->tipo = strdup(tipo);
-    novo->orc = orc;
+    strncpy(novo->desc, desc, sizeof(novo->desc) - 1);
+    novo->desc[sizeof(novo->desc) - 1] = '\0';
+    strncpy(novo->tipo, tipo, sizeof(novo->tipo) - 1);
+    novo->tipo[sizeof(novo->tipo) - 1] = '\0';
     novo->orc_atual = orc_atual;
-    novo->prof_resp = prof_resp;
+    novo->orc_total = orc_total;
     novo->prox = p;
 
     return novo;
 }
-
-
 /*Um aluno só pode ser vinculado a um projeto se houver orçamento atual disponível para o
 pagamento da sua bolsa por 12 meses (assuma que o orçamento aprovado para o projeto também
 se refere a 12 meses);*/
@@ -83,3 +89,15 @@ mostrada a mensagem “não há alunos vinculados a este projeto”.
 
 }
 */
+
+void projeto_imprime(Projeto* p) {
+    while (p != NULL) {
+        printf("Codigo: %d\n", p->cod);
+        printf("Descricao: %s\n", p->desc);
+        printf("Professor coord.: %s\n", p->prof_coord);
+        printf("Tipo: %s\n", p->tipo);
+        printf("Orcamento atual: %.2f\n", p->orc_atual);
+        printf("Orcamento total: %.2f\n", p->orc_total);
+        p = p->prox;
+    }
+}

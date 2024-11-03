@@ -1,25 +1,18 @@
-#ifndef PROJETO_H
-#define PROJETO_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
-#include "professor.h"
 
-struct projeto{
+typedef struct projeto {
+    char prof_coord[50]; 
     int cod;
-    char* desc;
-    char* tipo;
-    float orc;
+    char desc[100]; 
+    char tipo[20]; 
     float orc_atual;
-    struct Professor* prof_resp;
+    float orc_total;
     struct projeto* prox;
-};
+    }Projeto;
 
-typedef struct projeto Projeto;
-
-Projeto* projeto_insere(Projeto* p, Professor* prof_resp, int cod, char* desc, char* tipo, float orc, float orc_atual);
-
-//bool verificaOrcamento(Aluno* al, Projeto* p);
-
-#endif
+Projeto* projeto_cria();
+Projeto* projeto_insere(Projeto* p, const char* prof_coord, int cod, const char* desc, const char* tipo, float orc_total, float orc_atual);
+void projeto_imprime(Projeto* p);
+   

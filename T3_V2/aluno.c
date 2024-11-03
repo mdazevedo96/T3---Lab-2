@@ -1,32 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "aluno.h"
 
-Aluno* lst_cria(){
+Aluno* aluno_cria(){
     return NULL;
 }
 
-Aluno* aluno_insere(Aluno* al, char* nome, int matricula, int telefone){
-
+Aluno* aluno_insere(Aluno* a, const char* nome, int mat, int tel) {
     Aluno* novo = (Aluno*) malloc(sizeof(Aluno));
-    if(novo == NULL){
-        printf("Erro na alocacao");
+    if (novo == NULL) {
+        printf("Erro na alocacao\n");
         exit(1);
-    }else{
-        novo-> nome = nome;
-        novo->mat = matricula;
-        novo-> tel = telefone;
+    }
 
-        return novo;
+    strncpy(novo->nome, nome, sizeof(novo->nome) - 1);
+    novo->nome[sizeof(novo->nome) - 1] = '\0'; // Garante que a string é terminada em '\0'
+    novo->matricula = mat;
+    novo->telefone = tel;
+    novo->prox = a;
+
+    return novo;
+}
+
+void aluno_imprime(Aluno* a) {
+    while (a != NULL) {
+        printf("Nome: %s\n", a->nome);
+        printf("Matricula: %d\n", a->matricula);
+        printf("Telefone: %d\n", a->telefone);
+        a = a->prox;
     }
 }
 
-void aluno_imprime(Aluno* al){
-    Aluno* p;
-    for(p = al; p!=NULL; p = p->prox){
-        printf("Nome: %s\n", p->nome);
-        printf("Matricula: %d\n", p->mat);
-        printf("Telefone: %d\n", p->tel);
 
-    }
-}
