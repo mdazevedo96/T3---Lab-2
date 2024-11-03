@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include "aluno.h"
 #include "projeto.h"
+#include "professor.h"
 
 int main() {
     Aluno* al = NULL;
     Projeto* p = NULL;
+    Professor* pr = NULL;
     
     // Inserção de alunos
     al = aluno_insere(al, "Marcelo", 1, 21);
@@ -20,6 +22,13 @@ int main() {
 
     // Impressão da lista de projetos
     projeto_imprime(p);
+
+    //Inserção de professor
+    pr = professor_insere(pr, "Mateus", 01, "ELC");
+    pr = professor_insere(pr, "Patricia", 02, "LACC");
+
+    //Impressao de listas de professores
+    professor_imprime(pr);
 
     return 0;
 }
