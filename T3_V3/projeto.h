@@ -1,17 +1,20 @@
+#ifndef PROJETO.H
+#define PROJETO.H
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct projeto {
+struct projeto {
     int cod;
-    char desc[100]; 
-    char tipo[20]; 
+    char desc[100];
+    char tipo[20];
     float orc_atual;
     float orc_total;
-    char prof_coord[50]; 
-    
+    char prof_coord[50];
+
     struct projeto* prox;
-    }Projeto;
+    };
+    typedef struct projeto Projeto;
 
 // Cria uma lista vazia de projetos
 Projeto* projeto_cria();
@@ -27,3 +30,5 @@ void projeto_imprime(Projeto* p);
 
 // Gera um relatório de cada projeto com detalhes, incluindo alunos vinculados
 void projeto_relatorio(Projeto* p);
+
+#endif
