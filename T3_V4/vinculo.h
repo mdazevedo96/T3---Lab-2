@@ -33,4 +33,6 @@ void vinculo_imprime(Vinculo* lista);
 // Libera toda a lista de vínculos, evitando vazamentos de memória
 void vinculo_libera_todos(Vinculo* lista);
 
+
+
 #endif  // VINCULO_H

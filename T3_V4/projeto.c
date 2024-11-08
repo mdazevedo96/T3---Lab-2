@@ -88,3 +88,14 @@ void projeto_libera(Projeto* p) {
         free(temp);
     }
 }
+
+
+Projeto* projeto_busca(Projeto* p, int cod) {
+    Projeto* b;
+    for (b = p; b != NULL; b = b->prox) {
+        if (b->cod == cod) {
+            return b; // Retorna o projeto encontrado
+        }
+    }
+    return NULL; // Retorna NULL se o projeto não for encontrado
+}

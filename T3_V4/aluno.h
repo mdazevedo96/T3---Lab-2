@@ -16,5 +16,6 @@ typedef struct aluno Aluno;
 Aluno* aluno_cria();
 Aluno* aluno_insere(Aluno* a,const char* nome, int mat, int tel);
 void aluno_imprime(Aluno* al);
+Aluno* aluno_busca(Aluno* al, char* nome);
 
 #endif

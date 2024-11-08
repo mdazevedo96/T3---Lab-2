@@ -32,5 +32,19 @@ void aluno_imprime(Aluno* a) {
     }
 }
 
+#include <string.h>
+
+Aluno* aluno_busca(Aluno* al, char* nome) {
+    Aluno* b;
+    for (b = al; b != NULL; b = b->prox) {
+        if (strcmp(b->nome, nome) == 0) { // Usar strcmp para comparar strings
+            return b;
+        }
+    }
+    return NULL; // Retorna NULL se o aluno não for encontrado
+}
+
+
+
 
 
