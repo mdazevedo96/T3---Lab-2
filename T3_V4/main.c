@@ -91,24 +91,40 @@ int main() {
                 break;
 
             // 7 - Vincular aluno a projeto
-            case 7:
-                printf("Nome do aluno: ");
-                scanf("%99s", nome);
-                printf("Codigo do projeto: ");
-                scanf("%d", &cod);
-                printf("Valor mensal da bolsa: ");
-                scanf("%f", &valor_mensal);
+          case 7:
+            printf("Nome do aluno: ");
+            fgets(nome, sizeof(nome), stdin);
+            nome[strcspn(nome, "\n")] = '\0';  // Remove o '\n' no final do nome
 
-                // Encontre o aluno e o projeto pelos identificadores fornecidos
-                Aluno* aluno_encontrado = aluno_busca(al, nome);
-                Projeto* projeto_encontrado = projeto_busca(p, cod);
+            printf("Codigo do projeto: ");
+            scanf("%d", &cod);
 
-                if (aluno_encontrado && projeto_encontrado) {
-                    v = vinculo_insere(v, projeto_encontrado, aluno_encontrado, valor_mensal);
-                } else {
-                    printf("Aluno ou projeto não encontrado.\n");
-                }
+            printf("Valor mensal da bolsa: ");
+            scanf("%f", &valor_mensal);
+
+            // Validação do valor da bolsa
+            if (valor_mensal <= 0) {
+                printf("Erro: O valor mensal da bolsa deve ser positivo.\n");
                 break;
+            }
+
+            // Encontre o aluno e o projeto pelos identificadores fornecidos
+            Aluno* aluno_encontrado = aluno_busca(al, nome);
+            if (aluno_encontrado == NULL) {
+                printf("Erro: Aluno não encontrado: %s\n", nome);
+                break;
+            }
+
+            Projeto* projeto_encontrado = projeto_busca(p, cod);
+            if (projeto_encontrado == NULL) {
+                printf("Erro: Projeto não encontrado: %d\n", cod);
+                break;
+            }
+
+            // Inserir o vínculo
+            v = vinculo_insere(v, projeto_encontrado, aluno_encontrado, valor_mensal);
+            break;
+
 
             // 8 - Excluir vínculo de aluno a projeto
             case 8:
