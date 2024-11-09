@@ -1,0 +1,7 @@
+TRABALHO 3 - LISTAS ENCADEADAS
+DISCIPLINA: Lab de Programação II - ELC1067
+DUPLA: Marcelo Azevedo e Helena L. Kellermann
+
+IMPLEMENTADO:
+
+NÃO IMPLEMENTADO:
